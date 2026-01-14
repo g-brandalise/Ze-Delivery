@@ -9,8 +9,6 @@ from .serializers import PartnerSerializer
 
 class PartnerView(APIView):
 
-
-    def post(self, request):
         """
         Creates a new Partner
 
@@ -18,6 +16,9 @@ class PartnerView(APIView):
 
         Returns: Response
         """
+    
+    def post(self, request):
+
         serializer = PartnerSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
             serializer.save()
